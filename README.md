@@ -2,7 +2,9 @@
 
 This project provides a dual framework for analyzing avocados. It allows users to predict avocado prices using historical data and classify the ripeness stage of avocados from images using deep learning models. 
 
+
 # Table of Contents
+
 Project Overview
 
 Features
@@ -21,26 +23,34 @@ Project Workflow
 
 Author 
 
+
 # Project Overview
+
 The project consists of two main modules:
 
-Price Prediction – Uses regression models (CatBoost, Decision Tree, ExtraTree, RandomForest) to estimate the average retail price of avocados based on historical sales, PLU codes, region, and type (conventional or organic).
+# Price Prediction:
 
-Ripeness Classification – Uses convolutional neural networks (CNNs) to classify avocado images into five ripeness stages:
+Uses regression models (CatBoost, Decision Tree, ExtraTree, RandomForest) to estimate the average retail price of avocados based on historical sales, PLU codes, region, and type (conventional or organic).
 
-Underripe
+# Ripeness Classification:
 
-Breaking
+Uses convolutional neural networks (CNNs) to classify avocado images into five ripeness stages:
 
-Ripe (First Stage)
+1.Underripe
 
-Ripe (Second Stage)
+2.Breaking
 
-Overripe
+3.Ripe (First Stage)
+
+4.Ripe (Second Stage)
+
+5.Overripe
 
 The combined system provides an end-to-end solution for avocado market analysis and quality assessment. 
 
+
 # Features
+
 Predict avocado prices for a given date, type, and region.
 
 Classify the ripeness stage of any avocado image.
@@ -48,6 +58,7 @@ Classify the ripeness stage of any avocado image.
 Visualize results using scatter plots, accuracy/loss curves, and confusion matrices.
 
 Modular structure for easy extension and maintenance.
+
 
 # Folder Structure
 
@@ -64,31 +75,35 @@ Modular structure for easy extension and maintenance.
 - **.gitignore**: Specifies files and directories to be ignored by version control.  
 
 
-# Installation 
+## Installation  
 
-1. Clone the repository:
+1. **Clone the repository:**  
 
-git clone https://github.com/raksha408/Avocado_Project.git
+   ```bash
+   git clone https://github.com/raksha408/Avocado_Project.git
+   cd Avocado_Project
 
-cd Avocado_Project 
+2. **Create a virtual environment:**  
 
-2. Create a virtual environment:
+   ```bash
+   python -m venv interface_avocado
 
-python -m venv interface_avocado
+3. **Activate the virtual environment:**  
 
-3.Activate the virtual environment:
+   - **Windows:**  
+     ```bash
+     interface_avocado\Scripts\activate
+     ```
 
-# Windows: 
+   - **Linux / Mac:**  
+     ```bash
+     source interface_avocado/bin/activate
+     ```
 
-interface_avocado\Scripts\activate
+4. **Install dependencies:**
 
-# Linux / Mac: 
+   pip install -r req.txt
 
-source interface_avocado/bin/activate
-
-4. Install dependencies:
-
-pip install -r req.txt
 
 # Usage
 
@@ -106,6 +121,7 @@ Price Prediction: Regression metrics and scatter plots are stored in assets/plot
 Ripeness Classification: Accuracy, loss curves, and confusion matrices are stored in assets/matrix/. 
 
 # Dependencies
+
 Python 3.10+
 
 Pandas, NumPy
