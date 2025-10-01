@@ -52,38 +52,76 @@ Modular structure for easy extension and maintenance.
 # Folder Structure
 
 Avocado_Project/
+
 ├─ avocado_price.zip
+
 ├─ avocado_ripeness.zip
+
 ├─ folder_structure.py
-├─ main_interface.py         # Streamlit interface for both modules
-├─ req.txt                   # Project dependencies
+
+├─ main_interface.py 
+
+# Streamlit interface for both modules
+
+├─ req.txt   
+
+# Project dependencies
+
 ├─ streamlit/
+
+
 ├─ Untitled.ipynb
+
 ├─ .git/
+
 ├─ .ipynb_checkpoints/
+
 ├─ assets/
+
 │   ├─ data/                 # Sample datasets
+
 │   │   └─ avocado.csv
+
 │   ├─ images/
+
 │   ├─ matrix/               # Model plots and confusion matrices
+
 │   └─ plots/                # Scatter plots for price models
+
 ├─ avocado_price/
+
 │   ├─ price_app.py
+
 │   ├─ utils_price.py
+
 │   └─ models/
+
 │       ├─ Catboost/
+
 │       ├─ DecisionTree/
+
 │       ├─ ExtraTree/
+
 │       └─ RandomForest/
+
 ├─ avocado_ripeness/
+
 │   ├─ app.py
+
 │   ├─ ripe_app.py
+
 │   ├─ utils_ripe.py
+
 │   ├─ models/
+
 │   │   ├─ Densenet201/
+
 │   │   ├─ EffnetB4/
+
 │   │   ├─ MobilenetV2/
+
 │   │   └─ Resnet50/
+
 │   └─ stages/               # Sample ripeness images
 
 
