@@ -1,63 +1,57 @@
 # Avocado Price Prediction & Ripeness Classification
 
-This project provides a dual framework for analyzing avocados. It allows users to predict avocado prices using historical data and classify the ripeness stage of avocados from images using deep learning models. 
+This project presents a **dual framework** for comprehensive avocado analysis.  
+It enables users to:
+
+- **Predict avocado prices** using historical sales data and regression models.  
+- **Classify the ripeness stage** of avocados from images using deep learning models (CNNs).  
+
+The system integrates both modules into a **unified Streamlit interface** for end-to-end market and quality assessment.
 
 
-# Table of Contents
+## Table of Contents
 
-Project Overview
-
-Features
-
-Folder Structure
-
-Installation
-
-Usage
-
-Results
-
-Dependencies
-
-Project Workflow
-
-Author 
+1. [Project Overview](#project-overview)  
+2. [Features](#features)  
+3. [Folder Structure](#folder-structure)  
+4. [Installation](#installation)  
+5. [Usage](#usage)  
+6. [Results](#results)  
+7. [Dependencies](#dependencies)  
+8. [Project Workflow](#project-workflow)  
+9. [Future Work](#future-work)  
+10. [Conclusion](#conclusion)  
+11. [Author](#author)  
+12. [Acknowledgments](#acknowledgments)
 
 
-# Project Overview
+## Project Overview
 
 The project consists of two main modules:
 
-# Price Prediction:
+### Price Prediction
 
-Uses regression models (CatBoost, Decision Tree, ExtraTree, RandomForest) to estimate the average retail price of avocados based on historical sales, PLU codes, region, and type (conventional or organic).
+Uses regression models including **CatBoost**, **Decision Tree**, **ExtraTree**, and **RandomForest** to estimate the average retail price of avocados. Predictions are based on historical sales data, PLU codes, region, and type (**conventional** or **organic**).
 
-# Ripeness Classification:
+### Ripeness Classification
 
-Uses convolutional neural networks (CNNs) to classify avocado images into five ripeness stages:
+Uses **Convolutional Neural Networks (CNNs)** to classify avocado images into five ripeness stages:
 
-1.Underripe
+1. **Underripe**  
+2. **Breaking**  
+3. **Ripe (First Stage)**  
+4. **Ripe (Second Stage)**  
+5. **Overripe**
 
-2.Breaking
-
-3.Ripe (First Stage)
-
-4.Ripe (Second Stage)
-
-5.Overripe
-
-The combined system provides an end-to-end solution for avocado market analysis and quality assessment. 
+The combined system provides an end-to-end solution for **avocado market analysis** and **quality assessment**.
 
 
-# Features
+## Features
 
-Predict avocado prices for a given date, type, and region.
-
-Classify the ripeness stage of any avocado image.
-
-Visualize results using scatter plots, accuracy/loss curves, and confusion matrices.
-
-Modular structure for easy extension and maintenance.
+- Predict avocado prices for a given **date**, **type**, and **region**.  
+- Classify the **ripeness stage** of any avocado image.  
+- Visualize results using **scatter plots**, **accuracy/loss curves**, and **confusion matrices**.  
+- Modular structure for **easy extension** and **maintenance**.
 
 
 # Folder Structure
@@ -105,131 +99,134 @@ Modular structure for easy extension and maintenance.
    pip install -r req.txt
 
 
-# Usage
+## Usage
 
-# Run the Streamlit App
+### Run the Streamlit App
 
-Start the unified interface: streamlit run main_interface.py
+1. **Start the unified interface:**  
+   ```bash
+   streamlit run main_interface.py
 
-Price Prediction: Enter avocado type, region, and date to get the predicted average price.
+2. **Price Prediction:**
+   ```bash
+   Enter avocado type, region, and date to get the predicted average price.
 
-Ripeness Classification: Upload an avocado image to classify its ripeness stage. 
+3. **Ripeness Classification:**
+   ```bash
+   Upload an avocado image to classify its ripeness stage.
 
-# Results
-Price Prediction: Regression metrics and scatter plots are stored in assets/plots/.
+## Results
 
-Ripeness Classification: Accuracy, loss curves, and confusion matrices are stored in assets/matrix/. 
+- **Price Prediction:**  
+  Regression metrics and scatter plots are stored in `assets/plots/`.
 
-# Dependencies
+- **Ripeness Classification:**  
+  Accuracy, loss curves, and confusion matrices are stored in `assets/matrix/`.
 
-Python 3.10+
 
-Pandas, NumPy
+## Dependencies
 
-Scikit-learn, CatBoost
+- **Python:** 3.10+  
+- **Libraries:**  
+  - Pandas, NumPy  
+  - Scikit-learn, CatBoost  
+  - TensorFlow / Keras  
+  - Streamlit  
+  - Matplotlib, Seaborn  
+  - Pillow  
 
-TensorFlow / Keras
+All dependencies are listed in `req.txt`.
 
-Streamlit
 
-Matplotlib, Seaborn
+## Project Workflow
 
-Pillow
+The project is organized into two main modules: **Price Prediction** and **Ripeness Classification**.  
+Each module has its own **data**, **models**, and **preprocessing steps**, allowing independent development and evaluation.  
+The unified Streamlit interface integrates both modules for end-to-end avocado analysis.
 
-All dependencies are listed in req.txt.
+## 1. Price Prediction Module
 
-# Project Workflow
-The project is organized into two main modules: Price Prediction and Ripeness Classification, each with its own data, models, and preprocessing steps.
+**Dataset:** Collected from Kaggle, containing **18,249 rows** with 13 columns.
 
-# 1. Price Prediction Module
+### Data Preparation
+- Load historical avocado sales data from CSV files.  
+- Convert **date fields** into ordinal format.  
+- Encode categorical features like **type** and **region**.
 
-Dataset is collected from Kaggle.It has 18249 rows with 13 columns.
+### Model Training
+- Candidate regressors: **CatBoost, Decision Tree, ExtraTree, RandomForest**.  
+- Perform **hyperparameter tuning** for each model.
 
-Data Preparation
+### Prediction & Evaluation
+- The final model predicts **average avocado prices**.  
+- Evaluation metrics: **MAE, MSE, RMSE, R²**.  
+- Generate **scatter plots** and **feature importance charts**.
 
-Historical avocado sales data is loaded from CSV files.
+---
 
-Date fields are converted into ordinal format.
+## 2. Ripeness Classification Module
 
-Categorical features like type and region are encoded.
+**Dataset:** Mendeley 'Hass' Avocado Ripening Photographic Dataset with **14,710 labeled images** (800×800 pixels).  
+- 478 Hass avocados, acquired three days post-harvest.  
+- Categorized into three storage groups:  
+  - **T10:** 10 ºC, 85% RH  
+  - **T20:** 20 ºC, 85% RH  
+  - **Tamb:** Ambient conditions  
+- Daily photographs of each sample captured from two opposite sides.  
+- Each image linked to a detailed **Ripening Index (5 stages)**:  
+  1. Underripe  
+  2. Breaking  
+  3. Ripe (First Stage)  
+  4. Ripe (Second Stage)  
+  5. Overripe  
+- Stage 4 marks the end of shelf-life; stage 5 indicates beyond prime.  
+- An Excel spreadsheet accompanies the dataset with image filenames, sample number, storage group, ripening stage, day, and side.
 
-Model Training
+### Data Preparation
+- Resize and normalize images.  
+- Apply **augmentation and oversampling** only to the training set.  
+- Split dataset into **train, validation, and test** sets.
 
-Candidate regressors: CatBoost, Decision Tree, ExtraTree, RandomForest.
+### Model Training
+- CNN architectures: **EfficientNetB4, MobileNetV2, ResNet50, DenseNet201**.  
+- Apply **hyperparameter tuning** and **early stopping**.
 
-Hyperparameter tuning is performed for each model.
+### Classification & Evaluation
+- Classify avocado images into **5 ripeness stages**.  
+- Evaluation metrics: **accuracy, precision, recall, F1-score**.  
+- Visualizations include **confusion matrices** and **training/validation curves**.
 
-Prediction & Evaluation
 
-The final model predicts average avocado prices.
+## 3. Streamlit Interface
 
-Evaluation metrics: MAE, MSE, RMSE, R².
+- Users can input avocado **type**, **region**, and **date** to predict prices or upload images for **ripeness classification**.  
+- Results are displayed **interactively** in the interface.  
+- Outputs are saved in the corresponding directories:  
+  - Price prediction plots: `assets/plots/`  
+  - Ripeness classification results: `assets/matrix/`
 
-Scatter plots and feature importance charts are generated.
+## Future Work
 
-# 2. Ripeness Classification Module
+- Integrate real-time market data for dynamic price prediction.  
+- Expand the ripeness classification dataset with more avocado varieties.  
+- Implement a mobile app interface for broader accessibility.  
+- Explore advanced deep learning architectures for improved accuracy.
 
-Dataset is collected from mendeley 'Hass' Avocado Ripening Photographic Dataset
+## Conclusion
 
-This dataset consists of 14,710 labeled photographs of Hass avocados (Persea Americana Mill. cv Hass), resized to 800 x 800 pixels and saved in the .jpg format, designed to facilitate the development of deep 
-learning models for predicting ripening stages and estimating shelf-life.
+This project provides an end-to-end solution for **avocado market analysis** and **quality assessment**, combining price prediction and ripeness classification.  
+The modular structure ensures easy extension and maintenance for future enhancements.
 
-A total of 478 Hass avocados were acquired three days post-harvest and categorized into three storage groups: T10 at 10 ºC with 85% relative humidity (RH); T20 at 20 ºC with 85% RH; and Tamb under ambient 
+## Author
 
-conditions.
+**Shriraksha [Kulkarni]**    
+- GitHub: [https://github.com/raksha408](https://github.com/raksha408)
 
-The ripening process of these avocados was documented through daily photographs (2 of each sample of opposite sides), each linked to a detailed Ripening Index with five stages: 
+## Acknowledgments
 
-1 - Underripe;
+- Kaggle for avocado price datasets.  
+- Mendeley for the 'Hass' Avocado Ripening Photographic Dataset.  
+- Open-source libraries and frameworks used: Pandas, NumPy, Scikit-learn, CatBoost, TensorFlow/Keras, Streamlit, Matplotlib, Seaborn, Pillow.
 
-2 - Breaking;
-
-3 - Ripe (First Stage);
-
-4 - Ripe (Second Stage);
-
-5 - Overripe.
-
-The fourth stage marked the end of the avocados' shelf-life, with any sample classified as stage 5 considered beyond its prime. Time stamps on each photograph enable the tracking of the duration from any 
-
-photograph, to the point each avocado reached the end of its shelf-life.
-
-Additionally, an Excel spreadsheet accompanies the dataset, listing all photograph filenames, their corresponding sample number, storage group, classification according to the 5-stage Ripening Index, the day the 
-
-photograph was taken relative to the start of the experiment, and the side of the fruit photographed (a or b).
-
-Data Preparation
-
-Images are resized and normalized.
-
-Augmentation and oversampling applied only to training set.
-
-Dataset split: train, validation, and test.
-
-Model Training
-
-CNN architectures: EfficientNetB4, MobileNetV2, ResNet50, DenseNet201.
-
-Hyperparameter tuning and early stopping applied.
-
-Classification & Evaluation
-
-The model classifies avocado images into 5 ripeness stages.
-
-Evaluation metrics: accuracy, precision, recall, F1-score.
-
-Visualizations include confusion matrices and training/validation curves.
-
-# 3. Streamlit Interface
-Users can input details to predict prices or upload images for ripeness classification.
-
-Results are displayed interactively and saved in the assets/plots or assets/matrix directories.
-
-# Author
-Shriraksha Kulkarni
-
-Aspiring Data Analyst & Machine Learning Enthusiast
-
-GitHub: raksha408
 
 
