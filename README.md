@@ -4,13 +4,21 @@ This project provides a dual framework for analyzing avocados. It allows users t
 
 # Table of Contents
 Project Overview
+
 Features
+
 Folder Structure
+
 Installation
+
 Usage
+
 Results
+
 Dependencies
+
 Project Workflow
+
 Author 
 
 # Project Overview
