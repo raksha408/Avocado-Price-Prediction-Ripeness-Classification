@@ -51,78 +51,17 @@ Modular structure for easy extension and maintenance.
 
 # Folder Structure
 
-Avocado_Project/
-
-├─ avocado_price.zip
-
-├─ avocado_ripeness.zip
-
-├─ folder_structure.py
-
-├─ main_interface.py 
-
-# Streamlit interface for both modules
-
-├─ req.txt   
-
-# Project dependencies
-
-├─ streamlit/
-
-
-├─ Untitled.ipynb
-
-├─ .git/
-
-├─ .ipynb_checkpoints/
-
-├─ assets/
-
-│   ├─ data/                 # Sample datasets
-
-│   │   └─ avocado.csv
-
-│   ├─ images/
-
-│   ├─ matrix/               # Model plots and confusion matrices
-
-│   └─ plots/                # Scatter plots for price models
-
-├─ avocado_price/
-
-│   ├─ price_app.py
-
-│   ├─ utils_price.py
-
-│   └─ models/
-
-│       ├─ Catboost/
-
-│       ├─ DecisionTree/
-
-│       ├─ ExtraTree/
-
-│       └─ RandomForest/
-
-├─ avocado_ripeness/
-
-│   ├─ app.py
-
-│   ├─ ripe_app.py
-
-│   ├─ utils_ripe.py
-
-│   ├─ models/
-
-│   │   ├─ Densenet201/
-
-│   │   ├─ EffnetB4/
-
-│   │   ├─ MobilenetV2/
-
-│   │   └─ Resnet50/
-
-│   └─ stages/               # Sample ripeness images
+- **data/**: Contains the dataset files used for price prediction and ripeness classification.  
+- **notebooks/**: Jupyter notebooks for data exploration, preprocessing, and model experimentation.  
+- **src/**: Python source code for the project.  
+  - `preprocess.py` → preprocessing functions for price and image data.  
+  - `price_model.py` → training and evaluation scripts for price prediction models.  
+  - `ripeness_model.py` → CNN model training and evaluation for ripeness classification.  
+  - `app.py` → Streamlit application that integrates both modules.  
+- **results/**: Stores generated outputs such as evaluation metrics, confusion matrices, and training/validation curves.  
+- **requirements.txt**: List of all dependencies required to run the project.  
+- **README.md**: Project documentation, setup instructions, and workflow description.  
+- **.gitignore**: Specifies files and directories to be ignored by version control.  
 
 
 # Installation 
