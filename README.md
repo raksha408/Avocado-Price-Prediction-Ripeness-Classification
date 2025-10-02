@@ -1,6 +1,5 @@
-# Avocado Price Prediction & Ripeness Classification
-
-This project presents a **dual framework** for comprehensive avocado analysis.  
+# Avocado Price Prediction and Ripeness Classification
+This repository provides an implementation of **avocado price prediction** using regression models and **avocado ripeness classification** using deep learning CNNs. It combines both modules into a unified Streamlit interface.
 It enables users to:
 
 - **Predict avocado prices** using historical sales data and regression models.  
