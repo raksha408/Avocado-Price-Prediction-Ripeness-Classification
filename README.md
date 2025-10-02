@@ -56,16 +56,26 @@ The combined system provides an end-to-end solution for **avocado market analysi
 
 # Folder Structure
 
-- **data/**: Contains the dataset files used for price prediction and ripeness classification.  
+- **Data/**: Contains datasets and sample files.  
+  - **ripeness_samples/** → sample avocado images across 5 ripening stages for classification.  
+  - **price_sample.csv** → sample dataset for avocado price prediction.  
+
 - **notebooks/**: Jupyter notebooks for data exploration, preprocessing, and model experimentation.  
+
 - **src/**: Python source code for the project.  
-  - `preprocess.py` → preprocessing functions for price and image data.  
   - `price_model.py` → training and evaluation scripts for price prediction models.  
   - `ripeness_model.py` → CNN model training and evaluation for ripeness classification.  
-  - `app.py` → Streamlit application that integrates both modules.  
-- **results/**: Stores generated outputs such as evaluation metrics, confusion matrices, and training/validation curves.  
+  - `main_interface.py` → Streamlit application integrating both modules.  
+
+- **Results/**: Stores model outputs and evaluation results.  
+  - **price/** → contains regression metrics and scatter plots.  
+    - `regression_metrics.csv` → evaluation metrics (MAE, MSE, RMSE, R²) for each model.  
+  - **ripeness/** → confusion matrices and training/validation curves for ripeness classification.  
+
 - **requirements.txt**: List of all dependencies required to run the project.  
+
 - **README.md**: Project documentation, setup instructions, and workflow description.  
+
 - **.gitignore**: Specifies files and directories to be ignored by version control.  
 
 
@@ -118,10 +128,16 @@ The combined system provides an end-to-end solution for **avocado market analysi
 ## Results
 
 - **Price Prediction:**  
-  Regression metrics and scatter plots are stored in `assets/plots/`.
+  Evaluation metrics and scatter plots are stored in `assets/plots/`.  
+  Among all models, the **Extra Trees Regressor** achieved the highest R² score of **0.9281**.  
 
 - **Ripeness Classification:**  
-  Accuracy, loss curves, and confusion matrices are stored in `assets/matrix/`.
+  Training and evaluation outputs such as accuracy curves, loss curves, and confusion matrices are stored in `assets/matrix/`.  
+  The best performing CNN was **EfficientNetB4** with an accuracy of **86.15%**. Other models achieved:  
+  - MobileNetV2 → **84.86%**  
+  - ResNet50 → **82.42%**  
+  - DenseNet201 → **80.24%**  
+
 
 
 ## Dependencies
