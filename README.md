@@ -235,7 +235,7 @@ The modular structure ensures easy extension and maintenance for future enhancem
 ## Author
 
 **Shriraksha [Kulkarni]**    
-- GitHub: [https://github.com/raksha408](https://github.com/raksha408)
+
 
 ## Acknowledgments
 
