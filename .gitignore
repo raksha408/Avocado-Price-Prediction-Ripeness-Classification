@@ -1,0 +1,35 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Data files (large raw datasets should not be tracked)
+data/price_sample.csv
+data/ripeness_samples/*
+
+# Model files
+*.joblib
+*.pkl
+*.cbm
+*.h5
+*.keras
+
+# Results (generated outputs)
+results/price/*
+results/ripeness/*
+
+# Streamlit cache
+.streamlit/
+
+# OS specific
+.DS_Store
+Thumbs.db
