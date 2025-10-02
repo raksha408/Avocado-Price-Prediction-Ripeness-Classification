@@ -1,0 +1,25 @@
+# Core Python version
+python>=3.10
+
+# Data handling
+pandas
+numpy
+
+# Machine Learning & Modeling
+scikit-learn
+catboost
+joblib
+
+# Deep Learning
+tensorflow
+keras
+
+# Visualization
+matplotlib
+seaborn
+
+# Web App
+streamlit
+
+# Image Processing
+pillow
